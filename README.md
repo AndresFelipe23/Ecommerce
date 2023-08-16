@@ -44,3 +44,10 @@ La tienda online cuenta con un apartado donde encontrarás todos los productos, 
 ![prec](https://github.com/AndresFelipe23/Ecommerce/assets/75282613/c82c7525-367c-4581-be99-240d10fa9e03)
 
 
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
+
+# Notas
+
+- Se sigue corrigiendo errores en el FrontEnd
+- Se está mejorando en la seguridad
+- Aún no está publicada la tienda
