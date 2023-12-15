@@ -19,35 +19,6 @@ var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 var path = require('path');
 
-
-const registro_admin = async function(req,res){
-    var data = req.body;
-    var admin_arr = [];
-
-    admin_arr = await Admin.find({email:data.email});
-
-    if(admin_arr.length == 0){
-       
-        if(data.password){
-            bcrypt.hash(data.password,null,null, async function(err,hash) {
-                if(hash){
-                    data.password = hash;
-                    var reg = await Admin.create(data);
-                    res.status(200).send({data:reg});
-                }else{
-                    res.status(200).send({message:'ErrorServe', data:undefined});
-                }
-            })
-        }else{
-            res.status(200).send({message:'No hay una contraseña', data:undefined});
-        }
-    }else{
-        res.status(200).send({message:'El correo ya existe en la base de datos', data:undefined});
-    } 
-}
-
-
-
 const login_admin = async function(req,res){
     var data = req.body;
     var admin_arr = [];
@@ -241,8 +212,8 @@ const actualizar_producto_admin = async function(req,res){
             let reg = await Producto.findByIdAndUpdate({_id:id},{
                 titulo: data.titulo,
                 stock: data.stock,
-                precio_dolar: data.precio_dolar,
-                precio_dolar: data.precio_dolar,
+                precio_antes_soles: data.precio_antes_soles,
+                precio_antes_dolares: data.precio_antes_dolares,
                 precio: data.precio,
                 precio_dolar: data.precio_dolar,
                 peso: data.peso,
@@ -268,8 +239,8 @@ const actualizar_producto_admin = async function(req,res){
            let reg = await Producto.findByIdAndUpdate({_id:id},{
                titulo: data.titulo,
                stock: data.stock,
-               precio_dolar: data.precio_dolar,
-                precio_dolar: data.precio_dolar,
+               precio_antes_soles: data.precio_antes_soles,
+                precio_antes_dolares: data.precio_antes_dolares,
                precio: data.precio,
                precio_dolar: data.precio_dolar,
                 peso: data.peso,
@@ -834,7 +805,6 @@ const enviar_orden_compra = async function(venta){
 }
 
 module.exports = {
-    registro_admin,
     login_admin,
     eliminar_etiqueta_admin,
     listar_etiquetas_admin,

@@ -7,7 +7,7 @@ var ProductoSchema = Schema({
     titulo: {type: String, required: true},
     slug: {type: String, required: true},
     portada: {type: String, required: true},
-    precio_antes_pesos: {type: Number,default: 0, required: true},
+    precio_antes_soles: {type: Number,default: 0, required: true},
     precio_antes_dolares: {type: Number,default: 0, required: true},
     precio: {type: Number, required: true},
     precio_dolar: {type: Number, required: true},
